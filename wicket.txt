@@ -1,0 +1,26 @@
+Congratulations!
+Your quick start works! This project is especially useful to start developing your Wicket application or to create a test case for a bug report.
+
+Get started
+You can even switch to HTTPS!
+
+From here you can start hacking away at your application and wow your clients:
+
+work through some examples
+read some books
+Get help
+We are here to help!
+
+join us on IRC on ##wicket@irc.freenode.net
+search our mailing list archives
+ask a question on the users list
+Reporting a bug
+Help us help you:
+
+reproduce the bug with the least amount of code
+create a unit test that shows the bug
+fix the bug and create a patch
+attach the result of step 1, 2 or 3 to a JIRA issue
+profit!
+Please mention the correct Wicket version: 9.12.0.
+

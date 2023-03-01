@@ -1,0 +1,16 @@
+                                                                       
+                                                                               Web Service 
+                                                                              ..............
+      web service have two architechure
+      1)soa        -->soap 
+      2)CP with FC -->Rest
+      
+SOA (service oriented architecture)
+...................................
+it is design 
+it use to integrate differenct application
+                                                    
+  
+
+
+ 

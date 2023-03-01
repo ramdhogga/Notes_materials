@@ -1,0 +1,120 @@
+Web Service
+...........
+it is software system designed to support interoparable machine to machine interaction over the network
+
+intropable means to independent to communicate to other application eg:net,java
+it should communicate over the network
+
+
+      Application <-request/responsce--->web service
+
+  
+*)we have two concepts are request and responsce  format
+  request and responsce are platformindependent which are support all type applications
+ we have two types data exchange format
+   1)XML (extensable markup lanquages) 
+   2)JSON(java script object notation)
+we have to make rq and res platform independent
+
+*)Service Definition
+  1)req/res format
+  2)req strecture
+  3)res strecture
+  4)endpoint(where is service available 
+*)Key Terminologies
+  1)request and responsce (inpput and output)
+  2)message exchange format(message exchange format)xml and json
+  3)service Provider (who provide service)
+  4)service consumer(who consume application)
+  5)service definition( it is contract b/w service
+  6)transport(service exposed http and que)
+  7)hhtp and mq(service over Que)
+
+
+
+                                                              Rest(Reprasantational state Transfer)
+  *) http(head)
+  body(http methods(GET,PUT,POST) and http status codes(200,404..)
+  *)Key abstraction -resource
+    resource has an uri (uniform resource identifier)
+     eg:/user/ranga/1
+    resource have different representations 1)xml 2)html 3)json
+  *)data exchange format  1)no restriction .json is popular
+  *)transport -->http only
+  *)service Defintition -- no standard.	WADL/SWAGGER/...
+
+Spring boot starter project:get start project quickly
+  1)web application
+  2)rest api
+  3)talk to database using jpa
+  4)talk to database using jdbc
+  5)secure your web application or rest api-spring boot starter security
+  spring boot web:mvc,web,tomcat,json
+*)logging.level.org.springframework=DEBUG
+*) run jar file -->java -jar jarname.jar
+*)provide number of inputs
+  1)beans   :spring beans
+  2)health  :app helth info
+  3)metrics :app metrics
+  4)mappings:arround request mapping
+*)Actuator : localhost:8080/actuator --we get all url related actuator
+   we have to add Actuator dependency
+   management.endpoints.web.explosure.include=*
+*)Default Error handling
+  
+*)Enity manager
+  @Repository
+@Transactional
+public class CourseJpaRepository {
+  @PersistenceContext
+  private EntityManager mngr;
+  
+  public void insert(Couse course) {
+	  mngr.merge(course);
+  }
+  public Couse findById(long id) {
+	  return mngr.find(Couse.class,id);
+  }
+  public void deleteById(long id) {
+	  Couse course=mngr.find(Couse.class,id);
+	  mngr.remove(course);
+  }
+ 
+}
+*)if we want connect to h2 database you have to follow below steps
+  -->we have to enter http://localhost:8085/h2-console on browser
+  -->we  have to  copy  url from console 
+  -->enter url on browser and connect 
+ --> we get database
+ -->we have to configure properties like below
+    spring.h2.console.enabled=true
+    spring.datasource.url=jdbc:h2:mem:testdb
+    spring.jpa.show-sql=true
+ -->we have to enter url on browser then we get database
+ --> we have to select sql file on resources then wegive name of the file 
+ -->we can create table on file. then we have to stop server then we have to run on.then it creates query
+
+****
+Jdbc 
+* write a lot of sql queries and write lot  of java code
+Spring jdbc
+*write a lot of sql queries and write less of java code
+JPA
+* Don't worry about quaries 
+* just map entities to Tables 
+Spring Data JPA
+JPA:it defines specification .it is api 
+  how do you define entities
+  how do you map attributes
+  how do you manage entities
+hibernate is popular implementation of JPA
+using hibernate  would lock in hibernate
+there are so jpa implementation eg:Toplink
+
+
+
+* Let's make JPA even more simple
+* i will take care of everything
+
+
+

@@ -1,0 +1,113 @@
+                                                            Maven Note(dependency management tool)
+ source code-->.java
+ compile file->.class
+ Build    =>.class intro =>.jar/.war/.ear
+ Jar = it is a collection of .class files
+ war = web archive =.class file +web resource
+ ear = Enterprise Archive =WAR + EJB classes
+ Library => Collection of .jar files
+ *) if we want build application we need add jars(dependencies) manually.
+    this process automated by maven
+ *)we have maven server on internet .it  have repository(memory area)(.m1) .it have jars ordered wel format.
+ *)dependency
+   groupid      -->provider name (company name)
+   artifactid   -->jar name
+   version    
+ *)pom(project object model) it behaves like a request   
+ *)our system have local reposatory (.m2)
+
+ pom.xml
+.........
+1)Parent maven project
+2)Our Project Details
+3)Properties
+4)*dependencies(jar)
+5)Dependency Management(we don't need mention version)
+6)plugins
+*Dependency chain: hadling all required jar .it gives to our project.chain of jars
+* in future our project convert to jar/war/pom
+    if we have parent project concepts
+maven dependency:
+*Exclusions: removing jar from maven dependencies in chain of jars
+*Scopes :when jar should be use who will take care of 
+ 1)compile(default):compile onwards
+ 2)provided :server or system
+ 3)runtime :runtime onwards
+ 4)system :local system then we have to give jar path
+ 5)test :unit testing
+ 6)plugin
+<scope>compile</scope>
+
+Properties:it holds data key and value format 
+           it provides version details in maven
+<properties>
+    <key>value</key>
+</properties>
+use property
+ ${key}
+alt+f5 is use to upadate pom.xml
+*)if we remove web.xml .we have to set value
+  <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>   
+  </properties> 
+*)dependency management
+  we don't need version
+  spring-bom(bill of materials)-->version is manged by it-->one bom contains all posibilities dependencies
+   <dependencyManagement>
+   <dependencies>
+  spring bom should add
+  <scope>import</scope>
+   <dependencies>
+   </dependencyManagement>
+   it will handle parent maven project details
+*)parent project: when we create project we have select pom
+  it is a maven project used to provide common setup for all /multiple 
+  child projects (it's inheritensce);
+  ex:common properties,common dependencies,dependency management,plugin management etc..
+  steps to create parent in child project 
+    
+*)Maven Build LifeCycle Process
+  excuting set of tasks to convert our code into final format (.jar/.war/.ear)
+ 3 types of phases
+ 1)clean :we have to clear old files
+ 2)***default
+    compile
+    package :build goal
+    install
+    deploy
+    test
+    install
+ 3)site(document&website)
+ goal:it excutes phase that works one 
+
+Q)what is difference between compile,test-compile and test phase
+ compile     :it will execute src/main/java file .it excutes goal  compile:compile
+ test-compile:it will execute src/test/java file and src/main/java file.it excutes goal compile:test-compile
+ test:      it excutes goal  test:test that will compile java files in both src folder also excutes all junit test cases
+ install:
+Q)jar meta data
+
+*) we have to compile dependencies
+   we have to add jar or war latest dependencies
+*) if we run package .then jar file is created on m2 folder
+
+
+
+site:clean install site (it provides documentation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

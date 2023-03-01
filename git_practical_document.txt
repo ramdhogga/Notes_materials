@@ -1,0 +1,55 @@
+                                            -------------
+                                            Git Material
+                                            ------------
+                           https://dev.classmethod.jp/articles/git-bash-commands/#toc-6 (Git All commands on web link)
+
+1)git init : it create .git (local reposatory)
+2)git add   : it need to add  file on stage area
+  git add.  :if you want to add all files
+3)git status :it shows status
+4)git rm -f * //forcefully remove
+5)git status  
+6)git commit -m "we have to write message here"
+7)git commit   // if we want multiline comment
+  we have to click insert button
+  we have to write comment then 
+  we have to click esc+shift+: wq
+8) git remote add origin https://github.com/chinnammalu/GitSample.git // we have to configure local repo to remote repo
+9) git push -u origin master  // we have add this to first time 
+10)git push   // we send file local repo to remote reposatory 
+11)git pull   // we can get file from remote repo to local repo
+12)git clone https://github.com/chinnammalu/GitSample.git   // get data from remote reposatory
+13)git diff branchone branchtwo
+14)git diff --staged 
+This command shows the changed contents that are staged but not committed.
+15)git commit -a // if we want add commit and comment to all files we use it
+16)git restore filename   //discard changes working directory
+17)git diff // file have modification is n't added .it shows differences	
+18) git diff --staged or git diff --cached//it is staged but it n't commited it shows differences
+19)git reset //latest unstage from stage area
+20)git reset --hard ###################/doubt
+   ................................................
+          Branch and Merge Commands
+   ................................................
+1)git branch :it gets list of branches
+2)git branch branchname :it creates branch
+3)git branch -d branchname :it deletes branch
+4)git checkout branchname // it changes one branch to another branch
+5)git checkout -b branchnme //it creates branch and swith to other branch
+6)git push orgin stage    // if we want send branch to  remote repo.we use it
+7)git merge stage(branchname)//branch stage merge into current branch
+    .............................................
+         	Logs and Reviews
+    .............................................
+1)git log : history(which file is added and which is removed and which file is merged)
+2)git show :This command shows the content change and metadata status of the specific commit. 
+   ........................................................
+                 Remote Upadate and Share 
+   .........................................................
+1)git remote add url // we have to configure local repo to remote repo
+2)  git push --set-upstream [variable name] [branch name]
+                 or 
+    git push -u origin [branch name]
+3)git puch branch name //it sends to remote repo
+4)git push -all // code send all branches on remote repo
+5)git pull  //code get from remote repo to local repo

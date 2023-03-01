@@ -1,0 +1,105 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: '[app-test]',
+  template: `<h2>
+            welcome {{name}}
+             </h2>
+             <h2>Adddition is : {{5+5}}</h2>
+             <h2>{{"welcome to "+name}}</h2>
+             <h2>length of name is: {{name.length}}</h2>
+             <h2>name is upercase : {{name.toUpperCase()}}</h2>
+             <h2>{{getUserName()}}</h2>
+             <h2>{{siteUrl}}</h2>
+             <input [id]="myId" type="text" value="viswas" /><br>
+             <input bind-disabled="isDisabled" type="text" value="ammulu" />
+             <h2 class="text-success">Codevalution</h2>
+             <h2 [class]="styleclass">Codevalution</h2>
+             <h2 [class.text-danger]="hasError">Danger Zone</h2>
+             <h2 [ngClass]="messageClasses">cloud Zone</h2>
+             <h2 [style.color]="'orange'" >welcome to hyd</h2>
+             <h2 [style.color]="hasError ? 'red':'green'" >welcome to hyd</h2>
+             <h2 [style.color]="highlightcolor" >welcome to hydrabad</h2>
+             <h2 [ngStyle]="tittlestyles" >welcome to banglore</h2>
+             <button (click)="onClick($event)" >greet</button>
+             <button (click)="gretting='welcome to ammulu'" >greetone</button>
+             {{gretting}}
+             <input #myinput type="text" />
+             <button (click)="getMeassage(myinput.value)">getmessage</button>
+             <button (click)="getMeassageinput(myinput)">getinput</button>
+             <h2 *ngIf="true">welcome to talangana</h2>
+             <h2 *ngIf="displayname;else elseBlock">welcome to hydrabad</h2>
+             <ng-template #elseBlock>
+             <h2>talangana is hidden</h2>  
+             </ng-template>
+             <div *ngIf="displayname; then thenBlock;else elseblock"></div>
+             <ng-template #thenBlock>
+             <h2>then block come</h2>  
+             </ng-template>
+             <ng-template #elseblock>
+             <h2>else block come</h2>  
+             </ng-template>
+
+             <div [ngSwitch]="color">
+                <div *ngSwitchCase="'red'"> it is red color </div>
+                <div *ngSwitchCase="'green'"> it is red color </div>
+                <div *ngSwitchCase="'yellow'"> it is red color</div>
+                <div></div>
+             </div>
+             `,
+  styles: [`
+    h2 {
+    color:blue;
+    }
+    .text-success{
+      color:green;
+    }
+    .text-danger{
+      color:red;
+    }
+    .text-special{
+      font-style:italic;
+    }
+  `]
+})
+export class TestComponent implements OnInit {
+ public name="ammulu";
+ public myId="testId";
+ public isDisabled=true;
+ public styleclass="text-success";
+ public hasError=true;
+ public isSpecial=true;
+ public highlightcolor="orange";
+ public gretting='';
+ public myinput="";
+ displayname=true;
+ public messageClasses={
+   "text-success": !this.hasError,
+   "text-danger": this.hasError,
+   "text-special": this.isSpecial
+ }
+ public tittlestyles={
+   color:"blue",
+   fontStyle: "italic"
+ }
+ onClick(event:any){
+  console.log('onclick event is.........'+event);
+  this.gretting='code evalution'
+ }
+
+ getMeassage(value: any){
+  console.log("value...is...."+value);
+
+ }
+ getMeassageinput(myinput:any){
+  console.log("input......."+myinput);
+ }
+  constructor() { }
+  public siteUrl=window.location.href;
+  getUserName(){
+    return "getuser name ..."+this.name;
+  }
+  ngOnInit(): void {
+  }
+
+}

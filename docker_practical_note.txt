@@ -1,0 +1,120 @@
+                                                                       Docker 
+                                                                       ......
+    *)we have different programming language application .if we want follow same deployement .we have to go docker
+    *)most popular cointainer tool is docker
+    *)create docker images for each micro service
+    *)we have to create  docker image for our application 
+    *) docker image contains everything like java,python etc.. and application code and dependencies
+    *)we create  our image any infra strecture 
+      -->your local machine 
+      -->corporate data center
+      -->cloud
+    *)if we run our application olden days we have all software our systems.if we deploy application there is lot mistake will be happen by tester or developer
+    *)we deploy application so easily using pull or run
+    *)                            Docker Client
+                                      |
+                                  Docker Daemon
+                                      |
+                        cointainers   Local Images    Image Registry
+    *) Docker daemon responasible to communicate Cointainer and Local images  and Image Registry
+    *) Docker daemon create image and communicate image registory to pull image to local reposatory and aslo it push images to image Registory
+    *) we can deploy our application on cloud easily
+ 
+Docker compose
+...............  
+   *)we have to create docker compose  file 
+   *)we have to define path
+   *)docker compose up
+
+  docker pull (pull immagename )
+  docker run  (pull sand start) it checks loacally it n't available in local then it pull and creates cointainer
+  docker start (restart cointer)
+  docker ps    (list of cointer)
+  docker stop cointainerid
+  docker run app
+  docker ps -a (get active containers)
+  docker start coaintainerid(restart)
+  docker run radis:4.0
+  docker run -p6000:6379 redis  (hostport:cointerport)
+  docker run -p6000:6379  -d redis // run at detached mode
+  docker images
+  docker logs coaintainerid
+  docker run -p6005:6379 --name redis-older(we can give any name) radis:4.0
+  docker exec -it 4924e63bc386 /bin/bash (if we want to go inside of cointainer)
+                 (or)
+  docker exec -it name /bin/bash (if we want to go inside of cointainer)
+  ls
+  pwd
+  cd /  (we can  go home dirictory)
+  ls   (bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var)
+  exit (we can exit termminal)
+
+docker udemy
+............
+docker run -p hostport/cointainer port
+docker run -p 5000:5000 in28min/todo-rest-api-h2:1.0.0.RELEASE
+docker run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE (if we want run detach mode,it generate container id)
+docker logs d9c3 (cointainerid)
+docker logs -f d9c3 (it follows logggers)
+docker container ls (we can get list of cointainers)
+docker tag  in28min/todo-rest-api-h2:1.0.0.RELEASE  in28min/todo-rest-api-h2:latest(same image we can give multiple tags)
+
+docker image
+------------
+docker pull mysql
+docker images
+docker search mysql
+docker image history 43fcfca0776d(image id)
+docker image inspect 43fcfca0776dd(image id)
+docker image remove  43fcfca0776d(image id)(image is removed from local reposatorgy)
+docker container pause de716
+docker logs -f
+docker container unpause fe18(cointainer id)
+docker container inspect fe18(cointainer id)
+docker container ls -a(it gets list of active /inactive cointainers)
+docker container prune(removes stoped cointainers)
+docker container logs -f fe18 (we can get logs of cointainer)
+docker container stop fe18  (it stops cointainer)
+docker container kill fe18  (it terminates cointainer immediatetly)
+docker run -p 5000:5000 -d --restart=always in28min/todo-rest-api-h2:1.0.0.RELEASE
+docker top  containerid(what is top process run in specific cointainer)
+docker stats (it shows status containers are running)	
+docker run -p 5001:5000 -m 512m  --cpu-quota  5000 -d  in28min/todo-rest-api-h2:0.0.1-SNAPSHOT ( we can give cpu usage to our application)
+docker system df   (it docker demon info like... docker cointains images and cointainers and local volumes)
+
+<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				 <configuration>
+ *)we have to write image related code inside of maven plugin
+				<image>
+				<name>chinnammalu/mmv1-${project.artifactId}:${project.version}</name>
+				</image>
+				<pullPolicy>IF_NOT_PRESENT</pullPolicy>//if image is not locally present then it creates image
+				</configuration>
+			</plugin>
+
+
+  Run image
+-------------
+ Run as->maven build->goal:spring-boot:build-image
+ db run
+........
+docker cp db.sql 4bd3d0855cce:/db.sql
+
+  Database Details shown on Docker by Using this Commands
+  ........................................................
+  1) we connect cointainer using  docker exec -it 4924e63bc386 /bin/bash 
+  psql dbsafe -U dbsafe eg:psql kmi -U dbsafe
+  \l List of databases
+  \dt we get list of tables
+
+
+
+   
+ 
+
+
+ 
+

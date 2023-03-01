@@ -1,0 +1,98 @@
+export{}
+let a=10;
+const b=30;
+console.log(b+'hello...'+a);
+let tittle:string|boolean="hello";
+tittle=true;
+console.log(tittle);
+let str:string="hello world";
+let str1:boolean=true;
+console.log(str+"..........."+str1);
+let num:number=90;
+let name:string='ammulu';
+let sentence:string=`my name is ${name} i am beginner of type script i have ${num} marks`;
+console.log(sentence);
+let arr1:number[]=[1,2,3]
+let arr: Array<number> =[1,2,3];
+console.log(arr+"......."+arr1);
+let p: [string,number]=["ammulu",2]
+console.log(p);
+enum color {read=7,green,blue};
+let c:color=color.green;
+console.log("...."+c);
+
+let random:any=10;
+random="hello";
+random=true;
+console.log("random......"+random);
+console.log(random.name);
+let myVriable:any=10;
+let var1;
+var1=10;
+var1=true;
+let var2:any;
+var2=true;
+var2="hello";
+console.log("var1..."+var1+"..var2..."+var2);
+function add(n1:number,n2?:number):number{
+    if(n2)
+        return n1+n2;
+    else
+        return n1;
+    
+}
+console.log(add(5,10));
+
+console.log(add(5));
+
+
+function getName(ver4:{firstName:string,lastName:string}){
+ console.log(`${ver4.firstName} ${ver4.lastName}`)   
+}
+let ver4 = {
+    firstName: 'Bruce',
+    lastName: 'wyne'
+};
+getName(ver4);
+interface person{
+    firstName:string;
+    lastName?:string
+}
+function getlastName(ver4:person){
+    console.log(`${ver4.firstName} ${ver4.lastName}`)   
+   }
+
+   getlastName(ver4);
+
+
+   class Employee{
+      empName:string;
+      constructor(name:string){
+        this.empName=name;
+
+      }
+
+      getName(){
+        console.log(`good morning ${this.empName}`);
+      }
+
+
+   }
+
+   let empobj=new Employee("ammulu");
+   empobj.getName();
+
+   class Manager extends Employee{
+     mngname:string;
+    constructor(managername:string){
+         super(name);
+         this.mngname=name;
+
+    }
+       getMngName(){
+        console.log(`mngname.....${this.mngname}`);
+       }
+
+   }
+   let mngobj=new Manager("raja");
+   mngobj.getMngName();
